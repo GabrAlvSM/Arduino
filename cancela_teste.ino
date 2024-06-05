@@ -45,6 +45,8 @@ digitalWrite(ledVerd, LOW); //porta 11 LED VERDE
 delay(500)
 motor.write(0) //MOTOR GIRA A 0° (FECHADO)
 
+delay(2000)
+
 
 
 
