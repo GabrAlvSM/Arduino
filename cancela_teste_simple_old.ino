@@ -19,7 +19,7 @@ motor.attach(8);
 }
 
 void loop() {
-  //put your setup code here, to run in loop:
+  //Sistema simples de loop da cancela ---SUBSTITUIDO POR SISTEMA JÁ FUNCIONAL COM LEITOR DE DIGITAL---
 
 digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
 
