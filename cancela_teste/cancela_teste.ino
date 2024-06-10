@@ -11,8 +11,6 @@ Servo motor;
 //Parametros da serial por software (pinos 2 e 3)
 SoftwareSerial mySerial(2, 3);
 
-// #define ledVerm  10;
-// #define ledVerd  11;
 int ledVerm = 10;
 int ledVerd = 11;
 
@@ -72,7 +70,7 @@ void setup()
 void loop()
 {
   getFingerprintID();
-  delay(50);
+  delay(100); //loop de 100ms (1/10s)
 }
 
 uint8_t getFingerprintID() {
@@ -125,7 +123,7 @@ uint8_t getFingerprintID() {
     Serial.println("Encontrada digital correspondente!");
 
     digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
-
+    
     motor.write(0); //MOTOR GIRA A 90° (ABERTO)
 
     //ABERTO
@@ -134,15 +132,24 @@ uint8_t getFingerprintID() {
 
     delay(7000); //(aberto)
 
+    for (i = 0; i < 2; i++)
+    {
     digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
     delay(500);
     digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
     delay(500);
     digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
-    delay(500);
-    digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
-    delay(500);
-    digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    }
+    
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
 
     delay(200); //MOTOR ESPERA 500ms (0,5 s) (ABERTO)
     digitalWrite(ledVerd, LOW); //porta 11 LED VERDE
@@ -150,15 +157,24 @@ uint8_t getFingerprintID() {
     delay(500);
     motor.write(90); //MOTOR GIRA A 0° (FECHADO)
 
+    for (i = 0; i < 3; i++)
+    {
     digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
     delay(500);
     digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
     delay(500);
     digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
-    delay(500);
-    digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
-    delay(500);
-    digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    }
+    
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    // digitalWrite(ledVerm, HIGH); // porta 10 LED VERMELHO
+    // delay(500);
+    // digitalWrite(ledVerm, LOW); // porta 10 LED VERMELHO
+    // delay(500);
 
     delay(2000);
 
